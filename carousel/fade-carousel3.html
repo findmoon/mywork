@@ -147,6 +147,7 @@
 		              $bullet= $wrap.find('.bullet'),
 		              $pre = $wrap.find('.pre'),
 		              $next = $wrap.find('.next');
+
 		      var curIdx = 0;
 		      var isAnimate = false;
 		      $pre.on('click',function(){
@@ -176,9 +177,7 @@
 		          $ctIdx.children().eq(curIdx).fadeIn(500,function(){
 		              isAnimate = false;
 		          });
-		          
-		          setBullet();
-		          
+		          setBullet();		          
 		      }
 
 		      function setBullet(){
