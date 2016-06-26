@@ -48,6 +48,31 @@ app.post('/username', function(req, res) {
 
 });
 
+// jsonp跨域请求
+app.get('/data',function (req, res) {
+	// console.log(req.query);
+	// // var a=req.query.callback+'("我是b.com下的请求返回")';
+	// var a=req.query.callback+'('+ "{a:'b.com下'}" +')';
+
+	// res.send(a);
+
+	//拿到数据
+	// var userData = {
+	// 	name:'findmoon',
+	// 	age: 24,
+	// 	work: 'coder'
+	// }
+
+	// var userDataString = JSON.stringify(userData);
+
+	// var data = req.query.callback + '(' + userDataString + ')';
+	// res.send(data);
+
+	res.set('Access-Control-Allow-Origin','http://a.com:8080');//设置响应头
+	var data = 'cors请求';
+	res.send(data);
+});
+
 /*
 * 发送get请求，有参数
 * /getmore
