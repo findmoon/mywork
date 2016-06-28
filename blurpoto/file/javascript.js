@@ -88,7 +88,7 @@ function show(){
             draw(image,clippingReign);
         },
         30
-    )
+    );
 }
 
 canvas.addEventListener("touchstart",function(e){

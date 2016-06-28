@@ -36,39 +36,39 @@
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script>
 		
-		// var cur=3;
-		// 	var lock=false;
-		// $('#load-more').click(function (event) {
-  //       event.stopImmediatePropagation();
-  //       if (lock) {
-		// 		return ;
-		// 	};//设置状态锁，加载完成后才可点击
-		// 	lock = true;
+		var cur=3;
+			var lock=false;
+		$('#load-more').click(function (event) {
+        event.stopImmediatePropagation();
+        if (lock) {
+				return ;
+			};//设置状态锁，加载完成后才可点击
+			lock = true;
 
-  //       $.ajax({
-  //           url: "http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/29-jquery%20ajax/code/getMoreItemJsonp.php",
-  //           dataType: 'jsonp',
-  //           type:'post',
-  //           cache: false,
-  //           data:{start:cur,len:6},
-  //           success:function(result, textStatus, jqXHR){
-  //               //console.log(jqXHR);
-  //               $.each( result.items,function (idx,ele) {
-  //                   $('#ct').append('<li>'+ele+'</li>');
-  //               });
-  //               lock = false;
-  //               cur += 6;
-  //           },
-  //           error:function (XMLHttpRequest, textStatus, errorThrown) {
-  //               console.log('error',textStatus);
-  //               lock = false;
-  //           }
-  //       })
+        $.ajax({
+            url: "http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/29-jquery%20ajax/code/getMoreItemJsonp.php",
+            dataType: 'jsonp',
+            type:'post',
+            cache: false,
+            data:{start:cur,len:6},
+            success:function(result, textStatus, jqXHR){
+                console.log(result);
+                $.each( result.items,function (idx,ele) {
+                    $('#ct').append('<li>'+ele+'</li>');
+                });
+                lock = false;
+                cur += 6;
+            },
+            error:function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log('error',textStatus);
+                lock = false;
+            }
+        })
 
-  //   });
+    });
 
 	
-		
+	/*	
 			// 接口：/getmore
 			//   type:get
 			//   dataType:json
@@ -122,7 +122,7 @@
 			}else{
 			  alert('获取数据失败');
 			}
-		}
+		}*/
 	</script>
 </body>
 </html>
