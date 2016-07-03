@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		html body{
+			width: 100%;
+			height: 100%;
+			background-color: #0F0311;
+		}
+		.work-wrap{
+			width: 100%;
+			height: 100%;
+			padding: 60px 0;
+			/*width: 1100px;*/
+			/*margin: 30px auto;*/
+			text-align: center;
+			background:url(public/img/bg2.jpg) #400B4F no-repeat;
+			/*background-size: cover;*/
+		}
+		.works-items{
+			display: inline-block;
+			margin: 0 auto;
+		}
+		.works-items:after{
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.item{
+			-webkit-select-user: none;
+			select-user: none;
+			position: relative;
+			float: left;
+			overflow: hidden;
+			color: #fff;
+		/* 	width: 20px;
+		-webkit-transition:1s ease-in-out;
+		-moz-transition:1s ease-in-out;
+		-o-transition:1s ease-in-out;
+		-ms-transition:1s ease-in-out;
+		transition:all 5s ease-in-out; */
+		}
+		.item>p{
+			width: 18px;
+			word-wrap: break-word;
+			height: 440px;
+			font-size: 20px;
+			text-align: center;
+			font-weight: 800;
+			margin: 15px 2px;
+			padding: 15px 15px;
+			padding-top: 35px;
+			background-color: #FF00FF;
+			border-radius: 25px;
+			cursor: pointer;
+			-webkit-transition:.4s ease-in-out;
+			-moz-transition:.4s ease-in-out;
+			-o-transition:.4s ease-in-out;
+			-ms-transition:.4s ease-in-out;
+			transition:.4s ease-in-out;
+		}
+		.item:hover>p{
+			-webkit-transform: scale(1.1,1.04);
+			-o-transform: scale(1.1,1.04);
+			-ms-transform: scale(1.1,1.04);
+			-moz-transform: scale(1.1,1.04);
+			transform: scale(1.1,1.04);
+			background-color: #FFCC33;
+		}
+	 /* 	 .item:hover>.detail-wrap{
+	 	 			 	display: block;
+	 	 			 	width: 340px;
+	 	 			 	transform: scaleX(1);
+	 	 				-webkit-transform: translateX(0);
+	 	 				-moz-transform: translateX(0);
+	 	 				-0-transform: translateX(0);
+	 	 				-ms-transform: translateX(0);
+	 	 				transform: translateX(0);
+	 	 			}   */
+		.detail-wrap{
+			
+			text-align: center;
+			vertical-align: middle;
+			width: 0;
+			height: 480px;
+		 	display: none;
+			margin: -495px 10px 24px 61px;
+			border-radius: 20px;
+			background-color: rgba(68,37,56,1);
+			/*transform: scaleX(0);*/
+			/*transform-origin: left;*/
+		/* 	-webkit-transform: translateX(-340px);
+		-moz-transform: translateX(-340px);
+		-0-transform: translateX(-340px);
+		-ms-transform: translateX(-340px);
+		transform: translateX(-340px); */
+
+	/*		-webkit-transition:1s ease-in-out;
+			-moz-transition:1s ease-in-out;
+			-o-transition:1s ease-in-out;
+			-ms-transition:1s ease-in-out;
+			transition:width 1s ease-in-out;	*/		
+		}
+		.detail-wrap a{
+			position: relative;
+			display: inline-block;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.detail-wrap a img{
+		/* 	position: absolute; */
+			background-color: #fff;
+			width: 290px;
+			height: 430px;
+			padding: 5px;
+			margin: 20px 0;
+
+		}
+		.detail-wrap a:hover .intro{
+			transform: translateY(0);
+		}
+		.detail-wrap a .intro{
+			position: absolute;
+			top: 2%;
+			left: 0;
+			right: 0;
+			bottom: 2%;
+			text-align: left;
+			border-radius: 10px;
+			padding: 75px 15px;
+			z-index: 10;
+			font-size: 18px;
+			line-height: 27px;
+			background-color: rgba(121,131,166,.6);
+			color: #fff;
+			transform: translateY(120%);
+			-webkit-transition:.7s ease-in-out;
+			-moz-transition:.7s ease-in-out;
+			-o-transition:.7s ease-in-out;
+			-ms-transition:.7s ease-in-out;
+			transition:.7s ease-in-out;
+		}
+	</style>
+</head>
+<body>
+	<div class="work-wrap">
+		<ul class="works-items">
+			<li class="item music">
+				<p class="ctrl">音乐播放器</p>
+				<div class="detail-wrap showed">					
+					<a href="">
+						<p class="intro">
+							基本功能：
+							<br>
+							1、歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+							<br>
+							2、页面的展现和拖拽功能
+							<br>
+							3、歌词随着时间的自动播放
+							<br>
+							4、进度条的滑动、跳进
+							<br>
+							5、音量的调节
+							<br>
+						</p>
+						<img src="public/img/music.png"alt="music-img">
+					</a>
+				</div>
+			</li>
+			<li class="item static-pages-one">
+				<p class="ctrl">首页全屏</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本实现：
+							<br>
+							1、html/body宽高100%，页面全屏使用宽高100%实现,内部水平垂直居中
+							<br>
+							2、a标签的hover效果，class区别不同样式
+							<br>
+							3、ul>li标签使用float浮动并清除浮动，调整大小宽度使在一列平均分布
+							<br>
+							4、background-img的引入、位置摆放和显示方式
+							<br>
+							5、字体图标库的引入和使用
+							<br>
+						</p>
+						<img src="public/img/full.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item static-pages-two">
+				<p class="ctrl">综合性网页</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本实现：
+							<br>
+							1、导航条的固定定位的实现
+							<br>
+							2、自定义字体和font-awesome字体图标的引入
+							<br>
+							3、绝对定位、相对定位的使用，文本的对齐方式
+							<br>
+							4、ul>li标签使用float浮动并清除浮动，设置大小并调整位置，实现两列三列的平均排列
+							<br>
+							5、表单元素的使用和大小设置
+							<br>
+						</p>
+						<img src="public/img/page2.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item lazy-load-gotop">
+				<p class="ctrl">懒加载图片及回到顶部</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本实现：
+							<br>
+							1、懒加载是在同一个页面加载多张图片时，为了节省网络资源和用户体验将图片地址放置在元素自定义的属性当中，当页面需要图片的呈现时在加载图片的一种方法。
+							<br>
+							2、元素出现在可视区域中需要加载图片时，再执行加载操作
+							<br>
+							3、设置标志位，已经加载的图片无须再次加载。
+							<br>
+							4、goTop功能实现了封装，动态创建回到顶部的按钮，当页面滚动超过一定距离时，按钮出现
+						</p>
+						<img src="public/img/lazyload.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item carousel">
+				<p class="ctrl">全屏轮播及多个轮播</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本实现：
+							<br>
+							1、页面全屏显示,或放置到一个元素容器中，使其值呈现一张图片
+							<br>
+							2、轮播的元素水平排列，采用向前向后移动的方式实现前后轮播，每次移动一个图片宽度，设置移动的过渡时间。
+							<br>
+							3、使用jQuery的animate动画实现效果
+							<br>
+							4、响应和性能考虑，使用懒加载的方式。
+							<br>
+							5、setInterval实现自动轮播。
+							<br>
+						</p>
+						<img src="public/img/coursal.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item ajax-get-more">
+				<p class="ctrl">ajax获取数据</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本实现：
+							<br>
+							1、定义好接口和路由，需要传递和接受的参数是什么
+							<br>
+							2、ajax请求的实现，设置好数据格式及传递的方式(get/post)
+							<br>
+							3、根据所要实现的功能设置请求成功或失败后的处理函数.
+							<br>
+							4、设置请求的状态锁，防止重复请求.				
+						</p>
+						<img src="public/img/getmore.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item five-in-low">
+				<p class="ctrl">五子棋</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本功能：
+							<br>
+							1、歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+							<br>
+							2、页面的展现和拖拽功能
+							<br>
+							3、歌词随着时间的自动播放
+							<br>
+							4、进度条的滑动、跳进
+							<br>
+							5、音量的调节
+							<br>
+						</p>
+						<img src="public/img/fiveinrow.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item blur-poto">
+				<p class="ctrl">照片模糊显示</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本功能：
+							<br>
+							1、歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+							<br>
+							2、页面的展现和拖拽功能
+							<br>
+							3、歌词随着时间的自动播放
+							<br>
+							4、进度条的滑动、跳进
+							<br>
+							5、音量的调节
+							<br>
+						</p>
+						<img src="public/img/blurpoto.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item stick-up">
+				<p class="ctrl">stickup小插件</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本功能：
+							<br>
+							1、歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+							<br>
+							2、页面的展现和拖拽功能
+							<br>
+							3、歌词随着时间的自动播放
+							<br>
+							4、进度条的滑动、跳进
+							<br>
+							5、音量的调节
+							<br>
+						</p>
+						<img src="public/img/stickup.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item tab-page">
+				<p class="ctrl">tab切换页面及添加元素</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本功能：
+							<br>
+							1、歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+							<br>
+							2、页面的展现和拖拽功能
+							<br>
+							3、歌词随着时间的自动播放
+							<br>
+							4、进度条的滑动、跳进
+							<br>
+							5、音量的调节
+							<br>
+						</p>
+						<img src="public/img/tabpage.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item warter-fall">
+				<p class="ctrl">瀑布流效果</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本功能：
+							<br>
+							1、歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+							<br>
+							2、页面的展现和拖拽功能
+							<br>
+							3、歌词随着时间的自动播放
+							<br>
+							4、进度条的滑动、跳进
+							<br>
+							5、音量的调节
+							<br>
+						</p>
+						<img src="public/img/page2.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+			<li class="item work-more">
+				<p class="ctrl">更多...</p>
+				<div class="detail-wrap">
+					<a href="">
+						<p class="intro">
+							基本功能：
+							<br>
+							1、歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+							<br>
+							2、页面的展现和拖拽功能
+							<br>
+							3、歌词随着时间的自动播放
+							<br>
+							4、进度条的滑动、跳进
+							<br>
+							5、音量的调节
+							<br>
+						</p>
+						<img src="public/img/more.png" alt="full-img">
+					</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<script>
+		$(function(){
+			$('.item').each(function(idx,ele){
+				$(ele).on('click',function() {
+					if($(ele).data('animated')){
+						return ;
+					}
+					$(ele).data('animated',true);
+					if(!$(ele).attr('showed')){
+						$(ele).find('.detail-wrap').show().animate({width:350},700);
+						$(ele).attr('showed',true);
+						$(ele).siblings().removeAttr('showed');
+						$(ele).siblings().find('.detail-wrap').animate({width:0},700,function(){
+								$(this).hide();
+								$(ele).data('animated',false);
+							});
+						
+					}else{
+						$(ele).find('.detail-wrap').animate({width:0},700,function(){
+								$(this).hide();
+								$(ele).removeAttr('showed');
+								$(ele).data('animated',false);
+							});
+
+					}
+				});
+				// $(ele).on('mouseleave',function() {
+				// 	$(ele).find('.detail-wrap').hide();
+				// 	// $(ele).siblings().find('.detail-wrap').hide();
+				// });
+			});
+			// $('.ctrl').on('mouseleave',function() {
+			// 	console.log(1);
+			// 	$(this).parents('.item').find('.detail-wrap').hide();
+				
+			// });
+		});
+	</script>
+</body>
+</html>

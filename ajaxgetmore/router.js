@@ -51,11 +51,11 @@ app.post('/username', function(req, res) {
 // jsonp跨域请求
 app.get('/data',function (req, res) {
 	// console.log(req.query);
-	// // var a=req.query.callback+'("我是b.com下的请求返回")';
-	// var a=req.query.callback+'('+ "{a:'b.com下'}" +')';
+	/*var a=req.query.callback+'("我是b.com下的请求返回")';*/
+/*	var a=req.query.callback+'('+ "{a:'b.com下'}" +')';
 
-	// res.send(a);
-
+	res.send(a);
+*/
 	//拿到数据
 	// var userData = {
 	// 	name:'findmoon',

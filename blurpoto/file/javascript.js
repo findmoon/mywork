@@ -94,3 +94,6 @@ function show(){
 canvas.addEventListener("touchstart",function(e){
     e.preventDefault();
 })
+
+/*document.getElementById("#blur-image").onload=*/
+
