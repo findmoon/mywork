@@ -82,8 +82,7 @@
 	 	 				-ms-transform: translateX(0);
 	 	 				transform: translateX(0);
 	 	 			}   */
-		.detail-wrap{
-			
+		.detail-wrap{			
 			text-align: center;
 			vertical-align: middle;
 			width: 0;
@@ -160,11 +159,12 @@
 		/*	line-height: 220px;*/
 			width: 199px;
 			height: 199px;
-			animation: potorotate 1s linear infinite;
+			animation: potorotate 1s linear;
 			background-color: rgba(175, 13, 90,.2);
 			border-radius: 50%;
 			
 		}
+
 		@keyframes potorotate{
 			from   {transform: rotateZ(0deg);}
 			to {transform: rotateZ(360deg);}			
@@ -173,6 +173,7 @@
 			from   {transform: translateX(-200%);}
 			to {transform: translateX(1);}			
 		}
+
 		.index .bar{
 			position: relative;
 			margin-left: 0;
@@ -203,13 +204,17 @@
 			display: inline-block;
 			
 		}
+		.index .poto-ct .poto-link:hover{
+			animation: potorotate 1s linear;
+		}
 		.index .poto-ct .privaty-poto{
 			display: inline-block;
 			width: 170px;
 			height: 170px;
 			margin: 15px auto;
 			border-radius: 50% 50%;
-			background: url('https://ps.ssl.qhimg.com/dr/_110_100/t01cf884c136c913d1a.jpg') center center no-repeat;
+			background: url('public/img/myme.png') center center no-repeat;
+			/* 'https://ps.ssl.qhimg.com/dr/_110_100/t01cf884c136c913d1a.jpg' */
 			background-size: cover;
 			animation: translatex 1s linear;
 		}

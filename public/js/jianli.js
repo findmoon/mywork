@@ -3,7 +3,7 @@ $(function(){
 				continuousVertical: true,
 				navigation: true,
 				navigationPosition: 'left',
-				navigationTooltips:['index','introduce','works','skills'],
+				navigationTooltips:['index','works','skills','introduce'],
 				afterRender:function(){
 					$('.item').each(function(idx,ele){
 						$(ele).on('click',function() {
