@@ -47,4 +47,6 @@ $.fn.stick = function () {
 
 					$div.hide();
 				};
+
+				return this;
 			};
