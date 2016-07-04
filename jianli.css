@@ -18,6 +18,10 @@
 			background: linear-gradient(35deg,rgba(77, 158, 135, 0.82) 25%, rgba(62, 96, 114, 0.56) 43%,rgba(101, 77, 94, 0.13) 60%, rgba(165, 68, 137, 0.33) 75%, rgba(214, 81, 101, 0.56)),url(public/img/bg2.jpg) no-repeat;
 			background-size: cover;
 		}
+		.work-wrap2 h1{
+			color: #68FC28;
+			font-size: 2.5em;
+		}
 		.works-items{
 			display: inline-block;
 			margin: 0 auto;

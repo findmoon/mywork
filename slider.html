@@ -81,6 +81,7 @@
 			</div>
 		</div>
 		<div class="section work-wrap2">
+			<h1>个人作品</h1>
 			<ul class="works-items">
 				<li class="item music">
 					<p class="ctrl">音乐播放器</p>
@@ -342,7 +343,7 @@
 							<br>
 							熟悉Git、Sublime、autom、IDEA等前端工具的使用
 							<br>
-							掌握常见布局方式
+							精通常见布局方式，双飞翼、圣杯布局等
 							<br>
 							对代码可读性、规范性、语义化有一定认识，对CSS兼容有一定经验，能熟练开发符合W3C规范的常见页面。
 						</p>
@@ -380,7 +381,7 @@
 					<a class="skilltip" href="#">orthers</a>
 					<div class="content">
 						<p class="miaoshu">
-							对设计模式、编写可复用代码方面有一定经验，可对一般常见效果实现组件化封装。						
+							对设计模式、编写可复用代码方面有一定经验，可对一般常见效果实现组件化封装。		
 							<br>
 							对前端工程化、模块化有一定认识，能使用RequirJS实现模块化开发,了解CMD、AMD、CommonJS 规范。
 							<br>
@@ -394,60 +395,13 @@
 						</p>
 					</div>
 				</li>
-		</ul>
+			</ul>
 		</div>
 	</div>
 
 	<script type="text/javascript" src="public/js/jquery-3.0.0.min.js"></script>
 	<script type="text/javascript" src="public/js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="public/js/jianli.js"></script>
 
-	<script>
-		$(function(){
-			$('#fullpage').fullpage({
-				continuousVertical: true,
-				navigation: true,
-				navigationPosition: 'left',
-				navigationTooltips:['index','introduce','works','skills'],
-				afterRender:function(){
-					$('.item').each(function(idx,ele){
-						$(ele).on('click',function() {
-							if($(ele).data('animated')){
-								return ;
-							}
-							$(ele).data('animated',true);
-							if(!$(ele).attr('showed')){
-								$(ele).find('.detail-wrap').show().animate({width:350},700);
-								$(ele).attr('showed',true);
-								$(ele).siblings().removeAttr('showed');
-								$(ele).siblings().find('.detail-wrap').animate({width:0},700,function(){
-										$(this).hide();
-										$(ele).data('animated',false);
-									});								
-							}else{
-								$(ele).find('.detail-wrap').animate({width:0},700,function(){
-										$(this).hide();
-										$(ele).removeAttr('showed');
-										$(ele).data('animated',false);
-									});
-							}
-						});
-					});
-					
-					$('.skills .skilltip').on('click',function(){
-						var $this = $(this),
-							idx = $this.index();
-						$this.parents('li').siblings().find('.skilltip').removeClass('active');
-						$this.addClass('active');
-						$this.parents('li').siblings().find('.active').fadeOut(1000,function(){
-							   //console.log(1);
-								$(this).removeClass('active');
-								$this.parents('li').find('.content').addClass('active').fadeIn(1000);
-							});
-					});
-				}
-			});
-
-		});
-	</script>
 </body>
 </html>
