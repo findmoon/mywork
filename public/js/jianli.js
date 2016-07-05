@@ -1,9 +1,11 @@
 $(function(){
 			$('#fullpage').fullpage({
 				continuousVertical: true,
+				anchors:['page1','page2','page3','page4'],
 				navigation: true,
 				navigationPosition: 'left',
 				navigationTooltips:['index','works','skills','introduce'],
+				navigationColor:'red',
 				afterRender:function(){
 					$('.item').each(function(idx,ele){
 						$(ele).on('click',function() {

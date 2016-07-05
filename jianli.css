@@ -157,12 +157,13 @@
 			position: relative;
 			display: inline-block;
 		/*	line-height: 220px;*/
-			width: 199px;
-			height: 199px;
-			animation: potorotate 1s linear;
+			width: 200px;
+			height: 200px;
+			/*animation: potorotate 1s linear;*/
 			background-color: rgba(175, 13, 90,.2);
 			border-radius: 50%;
-			
+			animation: translatex 1s linear;
+			z-index: 5;
 		}
 
 		@keyframes potorotate{
@@ -180,7 +181,7 @@
 			margin-top: -30px;
 			height: 25px;
 			width: 50%;
-			animation: barmove 2s linear;
+			animation: barmove 1s linear;
 			background: linear-gradient(rgba(216, 5, 77, 0.3), rgba(234, 233, 21, 0.3), rgba(30, 221, 94, 0.3), rgba(8, 101, 230, 0.3));
 		}
 		@keyframes barmove{
@@ -202,21 +203,30 @@
 		}
 		.index .poto-ct .poto-link{
 			display: inline-block;
-			
+		/* 	position: absolute;
+		top: 50%;
+				    left: 50%;
+				   transform: translate(-50%,-50%);
+				   margin-left:-43%;
+				   margin-top: -50%; 
+		为了实现translate和rotate，但是去掉好像也能实现？
+				   */
+
 		}
 		.index .poto-ct .poto-link:hover{
 			animation: potorotate 1s linear;
 		}
 		.index .poto-ct .privaty-poto{
 			display: inline-block;
-			width: 170px;
-			height: 170px;
-			margin: 15px auto;
+			width: 176px;
+			height: 176px;
+			margin: 12px 12px;
 			border-radius: 50% 50%;
 			background: url('public/img/myme.png') center center no-repeat;
 			/* 'https://ps.ssl.qhimg.com/dr/_110_100/t01cf884c136c913d1a.jpg' */
 			background-size: cover;
-			animation: translatex 1s linear;
+			/* animation: translatex 1s linear; */
+			animation: potorotate 1s linear;
 		}
 		.introduce{
 		 	background: linear-gradient(rgba(179, 149, 121, 0.1) 40%, rgba(143, 178, 200, 0.6) 75%, rgba(143, 178, 200, 0.58) 75%, rgba(75, 103, 140, 0.2)),url('public/img/wraps.jpg') no-repeat;
@@ -265,12 +275,12 @@
 		.skills ul li .skilltip{
 			display: inline-block;
 			font-size: 23px;
-			color: rgba(255,15,15,1);
+			color: rgb(15, 15, 6);
 			height: 40px;
 			line-height: 40px;
 		}
 		.skills ul li .skilltip.active{
-			color: rgb(15, 15, 6);
+			color: rgba(255,15,15,1);
 		}
 		.skills ul li .content.active{
 			display: table;
