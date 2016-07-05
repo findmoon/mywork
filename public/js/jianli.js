@@ -14,7 +14,11 @@ $(function(){
 							}
 							$(ele).data('animated',true);
 							if(!$(ele).attr('showed')){
-								$(ele).find('.detail-wrap').show().animate({width:350},700);
+								$(ele).find('.detail-wrap').show().animate({width:350},700,function(){
+										$('.detail-wrap a').on('click',function(e){
+												e.stopPropagation();	
+										});
+								});
 								$(ele).attr('showed',true);
 								$(ele).siblings().removeAttr('showed');
 								$(ele).siblings().find('.detail-wrap').animate({width:0},700,function(){
