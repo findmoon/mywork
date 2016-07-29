@@ -4,7 +4,7 @@ var musicPlay = (function(){
 		this.animateClock = false;
 		var soundMark,slideW,slideVolW,palyPrograssClock,lyricCt,clockLyric,tatolHeight;//歌词的总高度
 		
-		this.css = 1;
+	
 		this.soundMark = soundMark;
 		this.slideW = slideW;
 		this.slideVolW = slideVolW;
@@ -20,6 +20,7 @@ var musicPlay = (function(){
 		this.linkCss();
 		this.render();	
 		this.startInit();
+		this.changeCss();
 		this.setScollbar();
 		this.showBtn();
 		this.showLyric();
@@ -42,7 +43,7 @@ var musicPlay = (function(){
 
 
 	musicPlayer.prototype.linkCss = function(){
-		$('head').append('<link rel="stylesheet" type="text/css" href="music1.css" id="css1">');
+		$('head').append('<link rel="stylesheet" type="text/css" href="music1.css" id="css">');
 		// $('head').append('<link rel="stylesheet" type="text/css" href="music1.css" id="css2" disabled="false">');
 	};
 
@@ -63,9 +64,10 @@ var musicPlay = (function(){
 		var html = '<div class="music-ct">'+
 				'<i class="music-start iconfont">&#xe612;</i>'+
 				'<div class="music clearfix">'+'<audio id="audio" src="initsource/刘宽忍 - 枉凝眉.mp3">Your browser does not support the audio tag</audio>'+
+				'<!--添加换肤功能--><div id="themes"><i class="active" data-themes="music1">人</i><i data-themes="music2">吗</i></div>'+
 				'<div class="music-nav rf clearfix">'+
-				'<button class="nav-bar rf">'+
-				'<div class="channels" href="#">'+
+				'<button class="nav-bar rf" title="网页音乐播放器 ver3.0. by 刘建阳">'+
+				'<div class="channels">'+
 				'<i class="iconfont">&#xe68a;</i>'+
 				'<div class="channel-info">'+
 				'<ul class="channel-nav clearfix">'+
@@ -76,9 +78,10 @@ var musicPlay = (function(){
 				'<ul class="channel-item collection">收藏</ul>'+
 				'<ul class="channel-item hot active">热门</ul>'+
 				'</div><!-- 左侧的频道信息和歌曲列表 --></div></button>'+
+				'<!--添加换肤功能<div id="themes" class="rf"><i class="active" data-themes="music1">人</i><i data-themes="music2">吗</i></div>-->'+
 				'<div class="music-title"><p class="title">枉凝眉</p>'+
 				'<span class="author">刘宽忍</span></div>'+
-				'<div class="music-icon">'+
+				'<div class="music-icon" title="网页音乐播放器 ver3.0. by 刘建阳">'+
 				'<i class="iconfont">&#xe612;</i>'+
 				'</div></div>'+
 				'<div class="main">'+
@@ -124,24 +127,54 @@ var musicPlay = (function(){
 		 var audio = document.getElementById('audio');//获取audio作为全局变量，方便直接使用.play();
 		this.audio = audio;
 		this.drag($('.music-ct'));
-		this.changeCss($('.music-ct'));
+		// this.changeCss($('.music-ct'));
 		this.getRanSong();
 	};
 
-	musicPlayer.prototype.changeCss = function($node){
-		var _self = this;
-		$node.on('dblclick',function(){
-			var css = document.getElementById('css1');
-			if (_self.css === 1) {				
-				// console.log(css);
-				// css.getAttribute('id');
-				css.setAttribute('href','music2.css');
-				_self.css = 2;
+	musicPlayer.prototype.changeCss = function(){
+		
+		var defaultTheme = 'music1';
+		var currentTheme = typeof(cookie.get('currentTheme')) === 'undefined' ? defaultTheme : cookie.get('currentTheme');
+		switchTheme(currentTheme);
+		// console.log(currentTheme);
+
+		$('#themes').click(function (e) {
+			e.preventDefault();
+			var index = $(this).find('i.active').index();//d当前css主题是所有主题中的第几个
+			var curIndex;
+			
+			if (index === $(this).children('i').length-1) {
+				curIndex = 0;
 			}else{
-				css.setAttribute('href','music1.css');
-				_self.css = 1;
+				curIndex = index+1;
 			}
+			var currentTheme = $(this).find('i').eq(curIndex).addClass('active').attr('data-themes');
+			$(this).find('i').eq(curIndex).siblings().removeClass('active')
+			console.log(currentTheme);
+			cookie.set('currentTheme', currentTheme, {expires: 10});
+			switchTheme(currentTheme);
 		});
+
+		function switchTheme(themeName) {
+			if (themeName == 'music1') {
+				$('#css').attr('href', 'music1.css');
+			} else {
+				$('#css').attr('href', 'music2.css');
+			}
+		}
+
+		// $node.on('dblclick',function(){
+		// 	var css = document.getElementById('css');
+		// 	if (_self.css === 1) {				
+		// 		// console.log(css);
+		// 		// css.getAttribute('id');
+		// 		css.setAttribute('href','music2.css');
+		// 		_self.css = 2;
+		// 	}else{
+		// 		css.setAttribute('href','music1.css');
+		// 		_self.css = 1;
+		// 	}
+		// });
 
 	};
 
@@ -166,10 +199,11 @@ var musicPlay = (function(){
 					 	   		 $('.music-start').attr('start',true);
 					 			 _self.autoPre();//进度条和歌词自动前进
 					 			 _self.getChannel();//获取频道信息，
+					 			  _self.slideW = $('.progress-bar').width();
+					 			 _self.slideVolW = $('.vol-bar').width();//滑块的总宽度
 					 			 _self.slide($('.progress-bar .play-prograss'));
 					 			 _self.volSlide($('.vol-bar .vol-prograss'));
-					 			 _self.slideW = $('.progress-bar').width();
-					 			 _self.slideVolW = $('.vol-bar').width();//滑块的总宽度
+					 			
 					 		});//动画后自行完后在执行function();
 
 				$(_self.audio).attr('song-volume',0.6);//设置音量初始值,之后作为一个歌曲应当有的音量的标记
@@ -514,9 +548,10 @@ var musicPlay = (function(){
 			for(var kTime in lyricJson){
 			   		var kCurTime = _self.parseToPlayTime(kTime);//本行歌词所代表的实际秒数
 			   		var top = lyricHeight*kCurTime/_self.audio.duration;//本行歌词距离.lyric顶部的距离
-			   		var $node = $('<p>'+lyricJson[kTime]+'</p>').css({
+			   		var $node = $('<span>'+lyricJson[kTime]+'</span>').css({
 			   					'top':top
 			   					});//为每一句歌词设置位置
+			   		// console.log($node.css('top'));
 					$lyric.append($node);
 					//$lyric.last().css('top',top);
 					// console.log(top);

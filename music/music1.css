@@ -132,7 +132,7 @@
 */
 		}
 		.music-nav .iconfont{
-			font-size: 26px;
+			font-size: 26px;			
 		}
 
 		.music-nav .nav-bar{
@@ -142,8 +142,25 @@
 		}
 		.music-nav .music-icon{
 			position: absolute;
-			top: 18px;
-			right: 30px;
+			top: 16px;
+			right: 16px;
+			cursor: cell;
+		}
+		#themes{
+			position: absolute;
+		    top: 21px;
+		    right: 50px;
+		    cursor: pointer;
+		}
+		#themes:hover i.active{
+			text-shadow: 2px 2px 2px #f00;
+		}
+		#themes i{
+			display: none;
+			font-size: 17px;
+		}
+		#themes i.active{
+			display: inline-block;
 		}
 
 		.music-nav .music-title{
