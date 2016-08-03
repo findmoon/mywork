@@ -128,7 +128,7 @@ var musicPlay = (function(){
 
 	musicPlayer.prototype.startInit = function(){
 		
-		 var audio = document.getElementById('audio');//获取audio作为全局变量，方便直接使用.play();
+		var audio = document.getElementById('audio');//获取audio作为全局变量，方便直接使用.play();
 		this.audio = audio;
 		this.drag($('.music-ct'));
 		this.showBtn();
@@ -140,6 +140,10 @@ var musicPlay = (function(){
 		var _self = this;
 		var defaultTheme = 'music1';
 		var currentTheme = typeof(cookie.get('currentTheme')) === 'undefined' ? defaultTheme : cookie.get('currentTheme');
+	
+		$('#themes i[data-themes="' + currentTheme +'"]').addClass('active')
+														 .siblings()
+														 .removeClass('active');
 		switchTheme(currentTheme);
 		// console.log(currentTheme);
 
@@ -153,6 +157,7 @@ var musicPlay = (function(){
 			}else{
 				curIndex = index+1;
 			}
+			console.log(curIndex);
 			var currentTheme = $(this).find('i').eq(curIndex).addClass('active').attr('data-themes');
 			$(this).find('i').eq(curIndex).siblings().removeClass('active')
 			// console.log(currentTheme);
@@ -166,7 +171,7 @@ var musicPlay = (function(){
 		});
 
 		function switchTheme(themeName) {
-			// console.log('this:'+this);
+			// console.log(themeName);
 			if (themeName == 'music1') {
 				$('#css').attr('href', 'music1.css');
 				
@@ -250,6 +255,8 @@ var musicPlay = (function(){
 
 				_self.audio.volume = $(_self.audio).attr('song-volume');
 				_self.audio.play();//初始化时已经获取一首歌了，所以一点击展示按钮就播放
+				// console.log(_self.audio);
+				
 				$('.play').html('<i class="iconfont">&#xe730;</i>');
 				$('.music-bg').addClass('active');
 				_self.animateClock = false;
