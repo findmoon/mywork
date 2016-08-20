@@ -1,6 +1,5 @@
 {
   "manifest_version": 2,
-
  "name": "music FM Extension",
  "version": "3.7",
  "description": "A music extension that use doubanFM API and myself made.",
