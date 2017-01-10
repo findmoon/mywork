@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>webpakc 测试</title>
+	<!-- <link rel="stylesheet" href="css/a.css"> -->
+</head>
+<body>
+	<button id="change">点击改变a标签</button>
+	<a class="webpack" href="http://webpackdoc.com">webpack测试</a>
+
+	<script src="bundle.js"></script>
+	<script>
+		versionCompare(v1,v2){
+			if(v1 === v2){
+				return v1 + "和" + v2 + "版本高"；
+			}
+			var v1Arry = v1.split("."),
+			    v2Arry = v2.split(".");
+
+			for (var i = 0; i < v1Arry.length; i++) {
+				if (i > v2Arry.length) {
+					return v1 + "版本高"；
+				}else{
+
+					if (v1Arry[i] > v2Arry[i]) {
+						return v1 + "版本高"；
+					}else if (v1Arry[i] < v2Arry[i]) {
+						return v2 + "版本高"；
+					}
+				}
+			}
+
+			return v2 + "版本高";
+		}
+	</script>
+</body>
+</html>
