@@ -2,16 +2,6 @@ var musicPlay = (function(){
 	function musicPlayer(){
 		this.requestClock = false;
 		this.animateClock = false;
-		var soundMark,slideW,slideVolW,palyPrograssClock,lyricCt,clockLyric,tatolHeight;//歌词的总高度
-		
-	
-		this.soundMark = soundMark;
-		this.slideW = slideW;
-		this.slideVolW = slideVolW;
-		this.palyPrograssClock = palyPrograssClock;
-		this.lyricCt = lyricCt;
-		this.clockLyric = clockLyric;
-		this.tatolHeight = tatolHeight;
 		// 初始化需要用到的全局变量
 		
 	};
